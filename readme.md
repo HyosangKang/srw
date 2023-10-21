@@ -14,12 +14,12 @@ package main
 import "github.com/hyosangkang/srw"
 
 furn main() {
-	f := NewFractal(6, []int{0, 1, 0, 2})
+	f := srw.NewFractal(6, []int{0, 1, 0, 2})
 	f.Save("test.png")
 }
 ```
 
-`NewFractal(n, seq)` takes two arguments. `n` is the number of layers (`int`) and `seq` is the sequence of letters (`[]int`) in the initial word.
+`NewFractal(n, seq)` takes two arguments. `n` is the number of layers (`int`) and `seq` is the sequence of letters (`[]int`) in the initial word. Note that large `n` may take a long time to compute. We hightly advise to use `n` start from 2 and increase it gradually.
 To visualize the fractal, use `Save(fn)` where `fn` is the file name (`string`) to save the image.
 
 ### Rauzy fractal
@@ -30,7 +30,7 @@ package main
 import "github.com/hyosangkang/srw"
 
 furn main() {
-	f := NewFractal(6, []int{})
+	f := srw.NewFractal(6, []int{})
 	f.SetRauzy() 
     f.SetBdd() // to show the boundary only
 	f.Save("test.png")
